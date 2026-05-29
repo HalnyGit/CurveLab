@@ -79,3 +79,65 @@ Curve Builder:
 
 No component should perform responsibilities belonging to another component.
 
+## Development Philosophy
+
+CurveLab development follows two parallel tracks.
+
+### Track 1 – CurveLab
+
+Focus:
+
+* Architecture
+* Python implementation
+* Curves
+* Products
+* Pricing engines
+* Market data
+* Testing
+
+Goal:
+Build a production-quality multicurve pricing framework.
+
+### Track 2 – Quant Fundamentals
+
+Focus:
+
+* Time value of money
+* Discount factors
+* Forward rates
+* Day count conventions
+* Interpolation
+* Bootstrapping
+* Numerical methods
+* Stochastic processes
+* Derivatives pricing theory
+
+Goal:
+Understand the mathematical and financial concepts behind the implementation.
+
+### Guiding Principle
+
+Every major CurveLab component should be understood on three levels:
+
+1. Market intuition
+2. Mathematical formulation
+3. Python implementation
+
+The preferred learning path is:
+
+Market intuition
+→ Mathematical formulation
+→ Python implementation
+
+rather than the reverse.
+
+### Design Priorities
+
+Priority order:
+
+1. Correctness
+2. Transparency
+3. Maintainability
+4. Performance
+
+
