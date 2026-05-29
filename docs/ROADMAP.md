@@ -48,8 +48,8 @@ Przygotowanie repozytorium i dokumentacji.
 * [X] Utworzyć katalog docs
 * [X] Utworzyć ARCHITECTURE.md
 * [X] Utworzyć ROADMAP.md
-* [ ] Utworzyć CURVES.md
-* [ ] Utworzyć PRODUCTS.md
+* [X] Utworzyć CURVES.md
+* [X] Utworzyć PRODUCTS.md
 * [X] Przygotować .gitignore
 
 ### Rezultat
