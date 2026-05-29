@@ -38,6 +38,15 @@ Examples:
 
 ---
 
+### Interpolation
+
+Interpolation strategy is part of curve configuration.
+
+Different interpolation methods may be used
+for different curve types and curve segments.
+
+---
+
 ## OIS Reference Rates
 
 Examples:
