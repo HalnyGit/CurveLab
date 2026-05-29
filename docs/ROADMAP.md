@@ -44,13 +44,13 @@ Przygotowanie repozytorium i dokumentacji.
 
 ### Zadania
 
-* [ ] Utworzyć repozytorium
-* [ ] Utworzyć katalog docs
-* [ ] Utworzyć ARCHITECTURE.md
-* [ ] Utworzyć ROADMAP.md
+* [X] Utworzyć repozytorium
+* [X] Utworzyć katalog docs
+* [X] Utworzyć ARCHITECTURE.md
+* [X] Utworzyć ROADMAP.md
 * [ ] Utworzyć CURVES.md
 * [ ] Utworzyć PRODUCTS.md
-* [ ] Przygotować .gitignore
+* [X] Przygotować .gitignore
 
 ### Rezultat
 
