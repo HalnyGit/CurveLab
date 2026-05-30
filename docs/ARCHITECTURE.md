@@ -5,13 +5,17 @@
 ### Internal Dates
 
 Dates are stored internally as integers.
+Internal Date Standard:
 
-Rationale:
-- Easy Excel integration
-- Easier integration with potential future .NET components
-- Simple serialization between systems
-- Faster calculations
-- Reduced risk of locale / regional date format issues
+- Epoch: 2000-01-01
+- Internal date = number of calendar days since epoch
+
+Examples:
+
+- 2000-01-01 = 0
+- 2000-01-02 = 1
+
+Human-readable dates are converted at system boundaries.
 
 ### Product Architecture
 
@@ -140,4 +144,32 @@ Priority order:
 3. Maintainability
 4. Performance
 
+### Design Goals
 
+CurveLab should be:
+
+- Practical
+- Readable
+- Lightweight
+- Easy to use by traders
+- Extensible
+
+The goal is not to recreate QuantLib.
+
+The system should support the current MVP scope:
+
+- FRA
+- IRS
+- OIS
+- Curves
+- Discounting
+- Multi-curve pricing
+
+but remain open for future extensions such as:
+
+- CCS
+- MTM CCS
+- FX products
+- Cap/Floor
+- Swaptions
+- More advanced risk measures
