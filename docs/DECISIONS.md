@@ -148,8 +148,6 @@ Consequences:
 
 ---
 
-2026-05-31
-
 Decision:
 CurveLab should avoid becoming a mini-QuantLib.
 
