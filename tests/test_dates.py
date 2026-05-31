@@ -1,6 +1,6 @@
 from datetime import date
 
-from curvelab.core.dates import date_to_internal_date
+from curvelab.core.dates import date_to_internal_date, internal_date_to_date
 
 def test_epoch_date():
     # Test that the epoch date (2000-01-01) converts to 0
@@ -18,4 +18,5 @@ def test_round_trip():
     # Test that converting a date to internal and back gives the original date
     original_date = date(2026, 5, 30)
     internal_date = date_to_internal_date(original_date)
-    assert internal_date == (original_date - date(2000, 1, 1)).days
+    converted_date = internal_date_to_date(internal_date)
+    assert converted_date == original_date

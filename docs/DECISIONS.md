@@ -160,3 +160,17 @@ Consequences:
 - Prefer simple APIs.
 - Prioritize explainability over architectural complexity.
 - Keep future extensions possible without overengineering the MVP.
+
+---
+
+Decision:
+DayCount is both a market convention and a mathematical component.
+
+Reason:
+Day count convention is selected according to market/product conventions, but it directly affects year fraction, accruals, forward rates and PV.
+
+Consequences:
+- DayCount must be explicit in trade, curve and pricing configuration.
+- DayCount must expose a common year_fraction(start_date, end_date) interface.
+- Pricing components should not hardcode day count logic.
+- GUI / Excel should display day count convention names such as ACT365, ACT360, ACT_ACT_ISDA.
