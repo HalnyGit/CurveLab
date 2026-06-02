@@ -1,12 +1,6 @@
 from abc import ABC, abstractmethod
 from datetime import date
-from curvelab.core.dates import internal_date_to_date
-
-def days_in_year(year: int) -> int:
-    return 366 if is_leap_year(year) else 365
-
-def is_leap_year(year: int) -> bool:
-    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+from curvelab.core.dates import internal_date_to_date, days_in_year
 
 class DayCount(ABC):
     """Base class for day count conventions."""

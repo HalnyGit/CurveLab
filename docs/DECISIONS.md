@@ -174,3 +174,21 @@ Consequences:
 - DayCount must expose a common year_fraction(start_date, end_date) interface.
 - Pricing components should not hardcode day count logic.
 - GUI / Excel should display day count convention names such as ACT365, ACT360, ACT_ACT_ISDA.
+
+---
+
+2026-06-02
+
+Decision:
+Schedule is represented as a collection of Period objects.
+
+Reason:
+Cashflows are generated from accrual periods rather than from a simple list of dates.
+
+Consequences:
+- Period is the fundamental schedule element.
+- Period stores calculation dates, payment date and optional fixing dates.
+- Schedule contains a list of Period objects.
+- Schedule generation is separated from Schedule representation.
+- Standard schedules will be created by ScheduleBuilder.
+- Manual schedules remain possible for non-standard transactions.
