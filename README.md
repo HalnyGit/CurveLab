@@ -2,10 +2,6 @@
 
 Interest Rate Derivatives and Multi-Curve Analytics Framework
 
-# CurveLab
-
-Interest Rate Derivatives and Multi-Curve Analytics Framework
-
 ## Status
 
 Planning Phase

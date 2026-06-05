@@ -192,3 +192,18 @@ Consequences:
 - Schedule generation is separated from Schedule representation.
 - Standard schedules will be created by ScheduleBuilder.
 - Manual schedules remain possible for non-standard transactions.
+
+---
+
+## Frequency
+
+Decision:
+Schedule frequency is represented as a lightweight Frequency object.
+
+Reason:
+Frequency is a market convention and should be explicit, readable and extensible.
+
+Consequences:
+- ScheduleBuilder uses Frequency instead of raw strings.
+- GUI / Excel may expose labels such as 1M, 3M, 6M, 12M.
+- Internal engine uses Frequency(months=n).

@@ -24,6 +24,7 @@ class Act360(DayCount):
     def year_fraction(self, start_date: int, end_date: int) -> float:
         return (end_date - start_date) / 360.0
 
+
 class ActActISDA(DayCount):
     """ACT/ACT ISDA day count convention."""
 
