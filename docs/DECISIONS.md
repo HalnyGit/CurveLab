@@ -207,3 +207,30 @@ Consequences:
 - ScheduleBuilder uses Frequency instead of raw strings.
 - GUI / Excel may expose labels such as 1M, 3M, 6M, 12M.
 - Internal engine uses Frequency(months=n).
+
+---
+
+## Cashflow as Atomic Payment Object
+
+Date: 2026-06-01
+
+Decision:
+Cashflow is the atomic payment object in CurveLab.
+
+Cashflow contains:
+- payment_date
+- currency
+- amount
+
+Reason:
+All financial instruments ultimately generate future payments.
+Representing payments using a common Cashflow object simplifies pricing and promotes code reuse.
+
+Consequences:
+- Instruments generate collections of cashflows.
+- Pricers operate on cashflows rather than on instrument-specific details.
+- Cashflow may be used both as a standalone instrument and as a component of more complex instruments.
+- Coupon calculation logic remains outside the Cashflow object.
+
+
+

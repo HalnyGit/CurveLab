@@ -21,4 +21,6 @@ for i, period in enumerate(schedule.periods, start=1):
         internal_date_to_date(period.calculation_end_date),
         "pay",
         internal_date_to_date(period.payment_date),
+        "fix",
+        period.fixing_date
     )

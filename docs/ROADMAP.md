@@ -68,7 +68,7 @@ Podstawowe klasy infrastrukturalne.
 
 ### Zadania
 
-* [ ] DayCount
+* [X] DayCount
 * [ ] LinearInterpolator
 * [ ] DiscountCurve
 * [ ] Testy interpolacji
@@ -88,8 +88,8 @@ Framework cashflowów.
 
 ### Zadania
 
-* [ ] Period
-* [ ] Schedule
+* [X] Period
+* [X] Schedule
 * [ ] Cashflow
 * [ ] Pricer
 * [ ] Testy PV
