@@ -232,5 +232,24 @@ Consequences:
 - Cashflow may be used both as a standalone instrument and as a component of more complex instruments.
 - Coupon calculation logic remains outside the Cashflow object.
 
+---
+
+## FixedLeg Generates Cashflows
+
+Date: 2026-06-01
+
+Decision:
+FixedLeg generates fixed-rate cashflows from a Schedule.
+
+Reason:
+Leg-level conventions such as notional, fixed rate, currency and day count apply to the whole leg, not to individual cashflows.
+
+Consequences:
+- FixedLeg stores notional, fixed_rate, currency and day_count.
+- FixedLeg converts Period objects into Cashflow objects.
+- Cashflow remains a minimal atomic payment object.
+- FixedLeg does not calculate PV.
+- FixedLeg v1 supports constant notional.
+- Amortizing and accreting notionals may be added later via NotionalSchedule.
 
 
