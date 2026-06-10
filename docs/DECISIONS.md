@@ -232,7 +232,6 @@ Consequences:
 - Cashflow may be used both as a standalone instrument and as a component of more complex instruments.
 - Coupon calculation logic remains outside the Cashflow object.
 
----
 
 ## FixedLeg Generates Cashflows
 
@@ -253,3 +252,28 @@ Consequences:
 - Amortizing and accreting notionals may be added later via NotionalSchedule.
 
 
+## Generic Swap and Index-Driven Floating Legs
+
+Date: 2026-06-01
+
+Decision:
+CurveLab treats Swap as a generic instrument.
+
+Floating leg behavior is driven by the selected index.
+
+Reason:
+From a trader/user perspective, IRS and OIS are both swaps.
+The user should select an index such as WIBOR_3M, EURIBOR_6M, POLSTR or €STR, and the engine should apply the appropriate conventions.
+
+Consequences:
+- Swap does not need to be split into separate IRS and OIS instrument types at the user level.
+- Index is a first-class configuration object.
+- Different index types may have different internal implementations.
+- IBOR-style and overnight-style indices will share a common Index concept.
+- FloatingLeg will use the selected index to determine how floating cashflows are generated.
+
+
+## FRA cashflows
+
+Decision:
+FRA is settled as a single cashflow, but should expose an analytical view of fixed and floating economics.
