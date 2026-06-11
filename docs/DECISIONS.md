@@ -277,3 +277,10 @@ Consequences:
 
 Decision:
 FRA is settled as a single cashflow, but should expose an analytical view of fixed and floating economics.
+
+
+## Market quotes
+
+Market quotes do not store valuation dates individually.
+MarketDataSet represents a frozen market snapshot at a given valuation date.
+Historical fixings will be modeled separately.
