@@ -35,5 +35,5 @@ def test_curve_builder_builds_deposit_discount_curve():
     expected_df_3m = 1 / (1 + 0.05 * (90 / 365))
     expected_df_6m = 1 / (1 + 0.06 * (181 / 365))
 
-    assert curve.discount_factor(date_3m) == pytest.approx(expected_df_3m)
-    assert curve.discount_factor(date_6m) == pytest.approx(expected_df_6m)
+    assert curve.get_df(date_3m) == pytest.approx(expected_df_3m)
+    assert curve.get_df(date_6m) == pytest.approx(expected_df_6m)

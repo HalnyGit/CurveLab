@@ -1,10 +1,10 @@
 import pytest
 
-from curvelab.curves.curve import DiscountCurve
+from curvelab.curves.curve import Curve
 
 
 def test_discount_curve_exact_date_lookup():
-    curve = DiscountCurve(
+    curve = Curve(
         curve_name="PLN_WIBOR3M",
         valuation_date=0,
         points=[
@@ -12,15 +12,15 @@ def test_discount_curve_exact_date_lookup():
         ],
     )
 
-    assert curve.discount_factor(365) == pytest.approx(0.95)
+    assert curve.get_df(365) == pytest.approx(0.95)
 
 
 def test_discount_curve_missing_date_raises_error():
-    curve = DiscountCurve(
+    curve = Curve(
         curve_name="PLN_WIBOR3M",
         valuation_date=0,
         points=[],
     )
 
     with pytest.raises(KeyError):
-        curve.discount_factor(365)
+        curve.get_df(365)

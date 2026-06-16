@@ -6,10 +6,10 @@ from curvelab.core.dates import (
     date_to_internal_date,
     internal_date_to_date,
 )
-from curvelab.curves.curve import DiscountCurve
+from curvelab.curves.curve import Curve
 
 
-curve = DiscountCurve(
+curve = Curve(
     curve_name="PLN_WIBOR3M",
     valuation_date=date_to_internal_date(date(2026, 1, 1)),
     points=[

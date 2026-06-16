@@ -1,7 +1,7 @@
 from curvelab.core.dates import add_months, date_to_internal_date, internal_date_to_date
 from curvelab.core.daycount import Act365
 from curvelab.core.schedule import Frequency
-from curvelab.curves.curve import DiscountCurve
+from curvelab.curves.curve import Curve
 from curvelab.curves.curve_definition import CurveDefinition
 from curvelab.marketdata.market_data_set import MarketDataSet
 
@@ -18,7 +18,7 @@ class CurveBuilder:
         self,
         curve_definition: CurveDefinition,
         market_data_set: MarketDataSet,
-    ) -> DiscountCurve:
+    ) -> Curve:
         points: list[tuple[int, float]] = []
 
         for market_key in curve_definition.market_keys:
@@ -50,7 +50,7 @@ class CurveBuilder:
                 (maturity_internal_date, discount_factor)
             )
 
-        return DiscountCurve(
+        return Curve(
             curve_name=curve_definition.curve_name,
             valuation_date=market_data_set.valuation_date,
             points=points,

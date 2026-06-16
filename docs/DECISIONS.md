@@ -292,6 +292,27 @@ curve.py for generic curve structures.
 DiscountCurve as first concrete curve type.
 ForecastCurve later.
 
+
 ## Market quotes vs Market instruments definitions
+
 Market keys identify quotes.
 Market instrument definitions explain how to convert quotes into instruments.
+
+
+## Curve builder
+
+CurveBuilder should support solver-based calibration.
+Reason:
+Sequential bootstrap is simple but limited. Solver-based calibration allows CurveLab to calibrate multiple curve points simultaneously and handle more complex instruments and dependencies.
+Consequences:
+- CurveBuilder builds a calibration problem from CurveDefinition and market data.
+- Market instruments produce pricing residuals.
+- Solver adjusts curve parameters to minimize residuals.
+- Sequential bootstrap may still be used as a simple special case.
+
+
+## Curve calibration
+
+Product does not calibrate the curve
+PRoduct returns only Rate/PV from CurveSet
+Calibration Problem decides which curves are unknowns and which products needs to be fitted in
