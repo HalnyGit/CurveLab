@@ -3,6 +3,8 @@ from dataclasses import dataclass
 from curvelab.core.daycount import DayCount
 from curvelab.instruments.cashflow import Cashflow
 from curvelab.instruments.index import IborIndex
+from curvelab.curves.curve_set import CurveSet
+from curvelab.pricing.pricing_context import PricingContext
 
 
 @dataclass(frozen=True)
@@ -63,3 +65,11 @@ class FRA:
                 amount=self.settlement_amount(),
             )
         ]
+
+    def get_rate(self, pricing_context: PricingContext) -> float:
+        curve = pricing_context.get_curve(self.index.name)
+
+        df_start = curve.get_df(self.start_date)
+        df_end = curve.get_df(self.end_date)
+
+        return ((df_start / df_end) - 1.0) / self.tau

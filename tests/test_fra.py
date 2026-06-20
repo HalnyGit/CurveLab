@@ -3,6 +3,9 @@ import pytest
 from curvelab.core.daycount import Act365
 from curvelab.instruments.fra import FRA
 from curvelab.instruments.index import IborIndex
+from curvelab.curves.curve import Curve
+from curvelab.curves.curve_set import CurveSet
+from curvelab.pricing.pricing_context import PricingContext
 
 
 def make_wibor3m() -> IborIndex:
@@ -90,3 +93,42 @@ def test_fra_invalid_side_raises_error():
 
     with pytest.raises(ValueError):
         fra.generate_cashflows()
+
+def test_fra_get_rate_from_curve_set():
+    curve = Curve(
+        curve_name="PLN_WIBOR3M",
+        valuation_date=0,
+        points=[
+            (0, 1.0),
+            (365, 0.95),
+        ],
+    )
+
+    curve_set = CurveSet(
+        curves={
+        "PLN_WIBOR3M": curve,
+        },
+    )
+
+    context = PricingContext(
+        curve_set=curve_set,
+        curve_map={
+            "WIBOR3M": "PLN_WIBOR3M",
+        },
+    )
+
+    fra = FRA(
+        side="pay_fixed",
+        start_date=0,
+        end_date=365,
+        notional=100.0,
+        fixed_rate=0.05,
+        forward_rate=0.06,
+        currency="PLN",
+        index=make_wibor3m(),
+        day_count=Act365(),
+    )
+
+    expected_rate = ((1.0 / 0.95) - 1.0) / 1.0
+
+    assert fra.get_rate(context) == pytest.approx(expected_rate)

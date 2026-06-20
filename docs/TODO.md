@@ -12,6 +12,17 @@ Day count convention should come from market convention configuration.
 7. Solver
 8. CurveBuilder jako fasada
 
+Next session:
+1. FRA.get_rate(curve_set)
+2. Deposit.get_rate(curve_set)
+3. CurveSetBuilder
+   x -> CurveSet
+4. CurveSetCalibrationProblem
+5. Pierwszy solver
+   (np. 2 depo + 2 FRA)
+6. Pierwsza prawdziwa kalibracja krzywej
+
+
 class FRA:
     def get_rate(self, curve_set):
         forecast_curve = curve_set.get(self.forecast_curve_name)
