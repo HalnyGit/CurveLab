@@ -37,3 +37,27 @@ def test_curve_builder_builds_deposit_discount_curve():
 
     assert curve.get_df(date_3m) == pytest.approx(expected_df_3m)
     assert curve.get_df(date_6m) == pytest.approx(expected_df_6m)
+
+
+def test_curve_builder_raises_for_unsupported_market_key():
+    valuation_date = date_to_internal_date(date(2026, 1, 1))
+
+    curve_definition = CurveDefinition(
+        curve_name="PLN_WIBOR3M",
+        market_keys=[
+            "PLN_FRA_1X4",
+        ],
+    )
+
+    market_data_set = MarketDataSet(
+        valuation_date=valuation_date,
+        quotes=[
+            MarketQuote("PLN_FRA_1X4", 0.0525),
+        ],
+    )
+
+    with pytest.raises(NotImplementedError):
+        CurveBuilder().build(
+            curve_definition=curve_definition,
+            market_data_set=market_data_set,
+        )

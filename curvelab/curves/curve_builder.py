@@ -8,10 +8,12 @@ from curvelab.marketdata.market_data_set import MarketDataSet
 
 class CurveBuilder:
     """
-    Builds curves from market data.
+    Simple curve bootstrap builder.
 
     v1:
     - supports DEPO market keys only
+    - builds Curve directly from market quotes
+    - will later be replaced or wrapped by solver-based calibration
     """
 
     def build(
@@ -61,3 +63,5 @@ class CurveBuilder:
             return int(tenor[:-1])
 
         raise ValueError(f"Unsupported tenor: {tenor}")
+
+
